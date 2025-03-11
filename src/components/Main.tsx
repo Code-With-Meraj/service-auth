@@ -1,18 +1,18 @@
 import React from "react";
-import { Box, Typography } from "@mui/material";
+import UserManagement from "./UserManagement";
+import styles from "./MainBar.module.css"; // Import CSS Module
 
+interface MainBarProps {
+  isCollapsed: boolean;
+}
 
-const MainBar = () => {
+const MainBar: React.FC<MainBarProps> = ({ isCollapsed }) => {
   return (
-    <Box
-      sx={{
-        flex: 1,
-        padding: "20px",
-        backgroundColor: "#f4f4f4",
-      }}
+    <div
+      className={`${styles.mainBar} ${isCollapsed ? styles.collapsed : styles.expanded}`} 
     >
-      <Typography variant="body1">This is the main content area.</Typography>
-    </Box>
+      <UserManagement />
+    </div>
   );
 };
 
